@@ -149,6 +149,22 @@ body {
   text-shadow: 0 2px 14px rgba(245,158,11,0.25);
 }
 
+/* Ensure icon is centered and scales well */
+.square-icon {
+  display: inline-block;
+  line-height: 1;
+  font-size: 1em; /* inherit from .square for responsiveness */
+  transform: translateY(2%); /* optical centering for unicode glyphs */
+}
+
+/* keep empty squares height consistent with icon glyph metrics */
+.square:empty::after {
+  content: '';
+  display: block;
+  height: 1em;
+  line-height: 1;
+}
+
 .controls {
   display: flex;
   align-items: center;

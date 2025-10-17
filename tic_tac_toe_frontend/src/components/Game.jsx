@@ -37,9 +37,13 @@ export default function Game() {
   const isDraw = !winner && isBoardFull;
 
   const statusText = useMemo(() => {
-    if (winner) return `${winner} wins`;
+    if (winner) {
+      const name = winner === 'X' ? 'Knight' : 'Queen';
+      return `${name} wins`;
+    }
     if (isDraw) return 'Draw';
-    return `${xIsNext ? 'X' : 'O'}’s turn`;
+    const turnName = xIsNext ? 'Knight' : 'Queen';
+    return `${turnName}’s turn`;
   }, [winner, isDraw, xIsNext]);
 
   function handlePlay(index) {

@@ -14,6 +14,7 @@ export default function Board({ squares, onPlay, highlight = [] }) {
             value={value}
             onClick={() => onPlay(index)}
             winning={isWinning}
+            aria-label={`Square ${index + 1}`}
           />
         );
       })}

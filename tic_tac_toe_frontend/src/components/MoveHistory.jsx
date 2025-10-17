@@ -18,11 +18,14 @@ export default function MoveHistory({ history }) {
     <div className="history" aria-live="polite">
       <h4>Moves</h4>
       <div className="history-list">
-        {history.map((m, i) => (
-          <span key={`${m.index}-${i}`} className="history-item">
-            {i + 1}. {m.player}@{m.index + 1}
-          </span>
-        ))}
+        {history.map((m, i) => {
+          const label = m.player === 'X' ? 'Knight' : 'Queen';
+          return (
+            <span key={`${m.index}-${i}`} className="history-item">
+              {i + 1}. {label}@{m.index + 1}
+            </span>
+          );
+        })}
       </div>
     </div>
   );
